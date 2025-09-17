@@ -1,4 +1,5 @@
-# 2022 version
+# 2025 version
+# Start with 5 replicas on app version 1.0 and no update settings
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -8,12 +9,6 @@ spec:
   selector:
     matchLabels:
       project: qsk-book
-  minReadySeconds: 20
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 0
   template:
     metadata:
       labels:
@@ -24,5 +19,5 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
-        image: nigelpoulton/qsk-book:1.1
+        image: nigelpoulton/qsk-book:1.0
 
